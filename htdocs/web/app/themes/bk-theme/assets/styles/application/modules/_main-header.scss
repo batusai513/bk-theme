@@ -1,0 +1,52 @@
+html.is-open{
+  overflow: hidden;
+}
+.main-header{
+  background-color: $brand-primary;
+	background: rgba($brand-primary, 0.96);
+	width: 100%;
+  padding: 0;
+  height: 48px;
+  transition: background 0.35s linear, height 0.35s ease-in;
+  overflow: hidden;
+  .is-open &{
+    height: 100%;
+    overflow: visible;
+    @media #{$medium} {
+      height: auto;
+      overflow: visible;
+    }
+  }
+  &--positioned{
+    position: absolute;
+    z-index: 1;
+    transition: background 0.35s linear,height 0.35s ease-in 200ms;;
+  }
+  &__logo{
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    .main-logo__link{
+      @media #{$medium-max} {
+        width: 108px;
+        height: 33px; 
+      }
+    }
+    @media #{$medium} {
+      padding-top: $base-spacing-unit;
+      padding-bottom: $base-spacing-unit;
+    }
+  }
+  &__mbutton{
+    float: right;
+    margin-top: 2px;
+    display: block;
+    @media #{$medium} {
+      display: none;
+    }
+  }
+  @media #{$medium} {
+    height: auto;
+    overflow: visible;
+  }
+}

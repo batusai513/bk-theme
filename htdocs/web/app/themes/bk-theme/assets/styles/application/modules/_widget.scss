@@ -1,0 +1,11 @@
+.widget{
+  &__title{
+    font-weight: bold;
+  }
+	ul{
+    font-size: em(13);
+    list-style-type: none;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}

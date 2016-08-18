@@ -1,0 +1,28 @@
+.main-footer{
+  @include rem(14);
+	background: $brand-primary url('../images/logo-footer.png') no-repeat right top;
+	color: #9D9D9D;
+  @media #{$medium} {
+    height: 424px;
+  }
+  &__top{
+    padding-top: em($base-spacing-unit);
+    padding-bottom: em($base-spacing-unit);
+    @media #{$medium} {
+      padding-top: em(81);
+      padding-bottom: em(66);
+    }
+  }
+  &__bottom{
+    color: white;
+    border-top: 1px solid #464A4C;
+    padding-top: em($base-spacing-unit);
+    padding-bottom: em($base-spacing-unit);
+  }
+  &__item-card{
+    display: none;
+    @media #{$medium} {
+      display: block;
+    }
+  }
+}

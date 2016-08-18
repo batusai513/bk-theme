@@ -1,0 +1,48 @@
+.main-logo{
+  font-size: 1em;
+  margin: 0;
+  &__link{
+    @extend %image-replace;
+    background: url('../images/logo-header.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 208px;
+    height: 66px;
+  }
+}
+
+.main-logo--small{
+  .main-logo__link{
+    width: 177px;
+    height: 59px;
+  }
+}
+
+@mixin logo-variant($large-size, $small-size) {
+  a{
+    background-position: $small-size;
+    @media #{$medium-max} {
+      background-position: $large-size;
+    }
+  }
+}
+
+.main-logo--light{
+  @include logo-variant( 0 -701px, 0 -511px);
+}
+
+.item-card{
+  text-align: center;
+  background-color: transparent;
+  background-image: linear-gradient(top left, #34383A, #2F3335);
+  box-shadow: 0 2px 4px rgba(black, 0.19);
+  padding-top: 53px;
+  padding-bottom: 53px;
+  &__light{
+    background-image: none;
+    background-color: white;
+    border: 1px solid #EBF0F5;
+    box-shadow: 10px 10px 25px rgba(#EBF0F5, 0.9);
+  }
+}

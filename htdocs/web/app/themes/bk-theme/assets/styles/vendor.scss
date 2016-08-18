@@ -1,0 +1,12 @@
+$slick-font-path: "../fonts/" !default;
+
+// bower:scss
+@import "../../bower_components/slick-carousel/slick/slick.scss";
+@import "../../bower_components/slick-carousel/slick/slick-theme.scss";
+// endbower
+
+.slick-list {
+    .slick-loading & {
+        background: #fff slick-image-url("../images/ajax-loader.gif") center center no-repeat;
+    }
+}

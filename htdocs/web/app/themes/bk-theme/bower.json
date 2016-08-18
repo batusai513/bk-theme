@@ -1,0 +1,41 @@
+{
+  "name": "sage",
+  "homepage": "https://roots.io/sage/",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "magnific-popup": "^1.1.0",
+    "normalize-css": "normalize.css#^4.2.0",
+    "readmore-js": "^2.2.0",
+    "shufflejs": "^4.0.1",
+    "slick-carousel": "^1.6.0",
+    "waypoints": "^4.0.1"
+  },
+  "overrides": {
+    "shufflejs": {
+      "main": [
+        "dist/shuffle.js"
+      ]
+    },
+    "waypoints": {
+      "main": [
+        "lib/noframework.waypoints.js",
+        "lib/shortcuts/sticky.js",
+        "lib/shortcuts/inview.js"
+      ]
+    },
+    "slick-carousel": {
+      "main": [
+        "slick/slick.js",
+        "slick/slick.less",
+        "slick/slick.scss",
+        "slick/slick-theme.less",
+        "slick/slick-theme.scss",
+        "slick/fonts/*"
+      ]
+    }
+  }
+}

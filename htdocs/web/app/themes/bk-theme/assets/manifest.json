@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/jquery.expander.js", "scripts/map.js", "scripts/main.js"
+      ],
+      "main": true
+    },
+    "external_vendor.css": {
+      "files": [
+        "styles/vendor.scss"
+      ],
+      "bower": [
+        "normalize-css", "magnific-popup"
+      ],
+      "main": false
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+    "external_vendor.js": {
+      "bower": ["shuffle", "waypoints", "magnific-popup", "slick-carousel", "readmore-js"]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    }
+  },
+  "config": {
+    "devUrl": "http://bk.dev.test:8081/"
+  }
+}

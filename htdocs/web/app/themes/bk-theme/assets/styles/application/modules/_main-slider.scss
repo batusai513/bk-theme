@@ -1,0 +1,76 @@
+.main-slider{
+  @include rem;
+  color: white;
+  margin-bottom: 0!important;
+
+  &__slide{
+    height: 400px;
+    padding-top: 115px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    padding-bottom: 10px;
+    @media #{$medium} {
+      height: 800px;
+      padding-bottom: 100px;
+    }
+  }
+  .slick-dots{
+    position: absolute;
+    bottom: 10px;
+  }
+
+  &__title{
+    font-size: em(30);
+    line-height: 1.15;
+    text-shadow: 0 2px 4px rgba(black, 0.45);
+    margin-bottom: $base-spacing-unit * 2;
+    &:before{
+      box-shadow: 0 2px 4px rgba(black, 0.45);
+    }
+    @media #{$medium} {
+      font-size: em(55);
+    }
+  }
+  &__city{
+    font-size: em(21, 55);
+    font-weight: 400;
+    display: block
+  }
+  &__button{
+    font-size: 20px;
+    padding: 15px 30px;
+  }
+}
+
+.slide-{
+  &burano{
+    background-image: url('../images/slide-burano.jpg');
+  }
+  &mezquita{
+    background-image: url('../images/slide-mezquita.jpg');
+  }
+  &hkm{
+    background-image: url('../images/slide-hkm.jpg');
+  }
+  &mall51{
+    background-image: url('../images/slide-mall51.jpg');
+  }
+  &tierrasanta{
+    background-image: url('../images/slide-tierrasanta.jpg');
+  }
+}
+
+.table-middle{
+  display: table;
+  height: 100%;
+  width: 100%;
+  &__cell{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+  }
+  &__footer{
+    display: table-footer-group;
+  }
+}

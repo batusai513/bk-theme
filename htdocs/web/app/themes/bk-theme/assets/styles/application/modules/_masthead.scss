@@ -1,0 +1,49 @@
+.masthead{
+  background-position: center;
+  background-size: cover;
+	border-bottom: 1px solid $gray-lighter;
+	margin-bottom: 0;
+	color: white;
+  padding-top: 115px;
+  @include rem(460px, height);
+  &__title{
+    text-shadow: 0 2px 4px rgba(black, 0.45);
+  }
+  &--simple{
+    color: inherit;
+    .masthead__title{
+      text-shadow: none;
+    }
+  }
+  &--large{
+    @include rem(612px, height);
+  }
+  &--small{
+    @include rem(296px, height);
+  }
+  &--nosotros{
+    background-image: url('../images/hero-nosotros.jpg');
+  }
+  &--servicios{
+    background-image: url('../images/hero-servicios.jpg');
+  }
+  &--retail{
+    background-image: url('../images/hero-retail.jpg');
+  }
+  &--institucional{
+    background-image: url('../images/hero-institucional.jpg');
+  }
+  &--residencial{
+    background-image: url('../images/hero-residencial.jpg');
+  }
+}
+
+.masthead-content{
+  background-color: rgba(#323638, 0.64);
+  color: white;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  p{
+    margin-bottom: 0;
+  }
+}

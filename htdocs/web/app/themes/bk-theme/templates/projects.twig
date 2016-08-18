@@ -1,0 +1,146 @@
+{% extends "templates/bk.twig" %}
+
+{% block content %}
+  {% for block in post.get_field('project_masterhead') %}
+    <div class="masthead masthead--large" style='background-image: url("{{TimberImage(block.imagen_de_fondo).src}}")'>
+      <div class="table-middle">
+        <div class="table-middle__cell text-center">
+          <h2 class="alpha uppercase bordered-text masthead__title">{{block.tipo}}</h2>
+        </div>
+        <div class="table-middle__footer">
+          <div class="masthead-content">
+            <div class="container">
+              <div class="flush--bottom text-justify">
+                {{block.introduccion}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  {% if post.get_field('projects')|length > 1 %}
+    <div class="pane--light" id="sticky-container">
+      <div class="container">
+        <div class="scroll">
+          <ul class="horizontal-nav nav nav--fit">
+            {% for project in post.get_field('projects') %}
+              <li class="horizontal-nav__item">
+                <a class="horizontal-nav__link" href="#{{project.nombre_proyecto|replace({'&':'_'})|split(' ')|join('_')}}">{{project.nombre_proyecto}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+
+  <section>
+    <h2 class="sr-only">
+      Listado de proyectos Retail
+    </h2>
+    {% for block in post.get_field('projects') %}
+        <article class="pane pane--medium pane--project inview-project" id="{{block.nombre_proyecto|replace({'&':'_'})|split(' ')|join('_')}}">
+          <div class="container">
+          {% if block.acf_fc_layout == 'project' %}
+            <h2>{{block.title}}</h2>
+            {% if block.anadir_logo_proyecto == true %}
+              <div class="grid push--bottom">
+                <div class="grid__item small--one-quarter text-center">
+                  <img src="{{TimberImage(block.logo_proyecto).src}}" alt="">
+                </div><div class="grid__item small--three-quarters">
+                  <div class="readmore">
+                    {{block.description}}
+                  </div>
+                  {% if block.metadatos %}
+                    <p>
+                    {% for meta in block.metadatos %}
+                        <b>{{meta.nombre}}: {{meta.valor}}</b> {% if not loop.last %} <br>{% endif %}
+                    {% endfor %}
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            {% else %}
+              <div class="readmore">
+                {{block.description}}
+              </div>
+              {% if block.metadatos %}
+                <p>
+                {% for meta in block.metadatos %}
+                    <b>{{meta.nombre}}: {{meta.valor}}</b> {% if not loop.last %} <br>{% endif %}
+                {% endfor %}
+                </p>
+              {% endif %}
+            {% endif %}
+            {% if block.gallery %}
+              <section class="push--bottom">
+                <h3 class="epsilon">Galería de fotos</h3>
+                <div class="grid grid--narrow zoom-gallery">
+                  {% spaceless %}
+                    {% for item in block.gallery %}
+                      <div class="grid__item small--one-half medium--one-quarter">
+                        <a href="{{TimberImage(item).src}}" title="{{TimberImage(item).title}}">
+                          <img src="{{TimberImage(item).src}}" alt="{{TimberImage(item).alt}}" title="{{TimberImage(item).title}}">
+                        </a>
+                      </div>
+                    {% endfor %}
+                  {% endspaceless %}
+                </div>
+              </section>
+            {% endif %}
+            {% if block.ficha_tecnica %}
+            <section>
+              <h2 class="epsilon">Ficha Técnica</h2>
+              {% for ficha in block.ficha_tecnica %}
+                  <article class="index-card index-card--bordered">
+                    <h3 class="zeta uppercase bold">{{ficha.titulo_ficha}}</h3>
+                    <div class="index-card__container">
+                      {% for columna in ficha.columnas %}
+                          <div class="index-card__item">
+                            {% for celda in columna.celda %}
+                                {% if celda.horizontal %}
+                                  <table class="index-card__table">
+                                    <tbody>
+                                      {% for item in celda.horizontal %}
+                                        <tr>
+                                          <th>{{item.title}}</th>
+                                          <td>{{item.value}}</td>
+                                        </tr> 
+                                      {% endfor %}
+                                    </tbody>
+                                  </table>
+                                  {% elseif celda.lista_definida %}
+                                      {% for item_lista in celda.lista_definida %}
+                                        <dl>
+                                          <dt>{{item_lista.titulo}}</dt>
+                                          {% for valor in item_lista.valores%}
+                                              <dd>{{valor|join}}</dd>
+                                          {% endfor %}
+                                        </dl>
+                                      {% endfor %}
+                                  {% else %}
+                                    <ul class="list-unstyled">
+                                      {% for item_lista in celda.lista_basica %}
+                                        <li>{{item_lista|join}}</li>
+                                      {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            {% endfor %}
+                          </div>
+                      {% endfor %}
+                    </div>
+                  </article>
+              {% endfor %}
+            </section>
+            {% endif %}
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+
+  </section>
+
+{% endblock %}
