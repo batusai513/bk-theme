@@ -1,0 +1,64 @@
+.destacados{
+  background-color: white;
+  margin: 8px;
+}
+
+.destacado{
+  @include rem;
+  position: relative;
+  width: 100%;
+  @media #{$medium} {
+    width: 50%;
+  }
+  &--end{
+    text-align: $end;
+  }
+  &__content{
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  &__text{
+    padding: $base-spacing-unit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  &__title{
+    @include rem(20);
+    color: white;
+    margin: 0;
+    line-height: 1.1;
+    @media #{$small} {
+      @include rem(30);
+    }
+  }
+  &__small{
+    display: block;
+    font-weight: 400;
+    font-size: em(19, 30);
+  }
+  &__city{
+    display: block;
+    font-size: em(25, 30)
+  }
+  img{
+    vertical-align: middle;
+    max-width: 100%;
+  }
+  &:hover{
+    .destacado__content{
+      opacity: 1;
+    }
+    .image-grid-item:after{
+      background-image: linear-gradient(rgba(black, 0.4), transparent);
+    }
+  }
+}
+
+.image-grid-item:after{
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  transition: background-image 0.6s ease-out;
+}

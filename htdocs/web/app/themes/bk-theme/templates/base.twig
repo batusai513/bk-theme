@@ -1,0 +1,39 @@
+<!doctype html>
+<html {{ function('language_attributes') }}>
+
+{% include 'templates/head.twig' %}
+
+<body {{ function('body_class') }}>
+
+  {% include 'templates/header.twig' %}
+  <main>
+    <div class="masthead masthead--simple masthead--small">
+      <div class="table-middle">
+        <div class="table-middle__cell text-center">
+          <h2 class="alpha bordered-text masthead__title">Noticias</h2>
+        </div>
+      </div>
+    </div>
+    <div class="pane pane--small pane--light">
+    <div class="container">
+    {% if display_sidebar %}
+      <div class="grid">
+        <aside class="sidebar grid__item small--one-quarter">
+          {% block sidebar %}
+            {% include 'templates/sidebar.twig' %}
+          {% endblock %}
+        </aside><div class="grid__item small--three-quarters">
+          {% block content %}{% endblock %}
+        </div>
+      </div>       
+    {% endif %}
+    </div>
+    </div>
+    
+  </main>
+
+  {% include 'templates/footer.twig' %}
+
+</body>
+
+</html>

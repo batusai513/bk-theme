@@ -1,0 +1,15 @@
+.caracteristica{
+  @include rem;
+  text-align: center;
+  max-width: 435px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: em($base-spacing-unit * 2);
+  &__icon{
+    font-size: em(80);
+    color: $brand-info;
+  }
+  &__title{
+    font-weight: 700;
+  }
+}

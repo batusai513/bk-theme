@@ -1,0 +1,60 @@
+{% extends "templates/bk.twig" %}
+
+{% block content %}
+
+  <div class="masthead masthead--simple masthead--small">
+    <div class="table-middle">
+      <div class="table-middle__cell text-center">
+        <h2 class="alpha bordered-text masthead__title">Avances de obra</h2>
+      </div>
+    </div>
+  </div>
+
+  {% if post.get_field('avances')|length > 1 %}
+    <div class="pane--light" id="sticky-container">
+      <div class="container">
+        <div class="scroll">
+          <ul class="horizontal-nav nav nav--fit">
+            {% for avance in post.get_field('avances') %}
+              <li class="horizontal-nav__item">
+                <a class="horizontal-nav__link" href="#{{avance.nombre|replace({'&':'_'})|split(' ')|join('_')}}">{{avance.nombre}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <section>
+    <h2 class="sr-only">
+      Fotos de avances de obras
+    </h2>
+    {% for avance in post.get_field('avances') %}
+      <article class="pane pane--light pane--small" id="{{avance.nombre|replace({'&':'_'})|split(' ')|join('_')}}">
+        <div class="container">
+          <h2>{{avance.titulo}}</h2>
+          <hr class="rule">
+          {% if avance.galeria %}
+            {% for item in avance.galeria %}
+              <section class="push--bottom">
+                <h3 class="epsilon">{{item.titulo_galeria}}</h3>
+                <div class="grid grid--narrow zoom-gallery">
+                  {% spaceless %}
+                    {% for foto in item.imagenes_galeria %}
+                      
+                        <div class="grid__item small--one-half medium--one-quarter">
+                          <a href="{{TimberImage(foto).src}}">
+                            <img src="{{TimberImage(foto).src}}" alt="{{foto.alt}}" title="{{foto.title}}">
+                          </a>
+                        </div>
+                    {% endfor %}
+                  {% endspaceless %}
+              </section>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+{% endblock %}

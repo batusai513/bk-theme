@@ -1,0 +1,55 @@
+.index-card{
+  @include rem(12);
+  padding: $base-spacing-unit $base-spacing-unit * 1.5;
+  background-color: white;
+  position: relative;
+  box-shadow: 0 20px 30px -20px rgba(0, 0, 0, 0.3);
+  &--bordered{
+    border-bottom: 1px solid #EBF0F5;
+  }
+  &__container{
+    width: 100%;
+    @media #{$small} {
+      display: table;
+      /* table-layout: fixed; */
+    }
+  }
+  &__item{
+    margin-bottom: $half-spacing-unit;
+    @media #{$small} {
+      margin-bottom: 0;
+      display: table-cell;
+      vertical-align: top;
+      padding-left: $base-spacing-unit;
+      padding-right: $base-spacing-unit;
+    }
+    &:first-child{
+      padding-left: 0;
+      @media #{$large} {
+        width: 350px;
+      }
+    }
+    & + &{
+      @media #{$small} {
+        border-left: 1px solid #979797;
+      }
+    }
+  }
+  &__table{
+    table-layout: fixed;
+    tbody > tr > th{
+      text-align: $start;
+      @media #{$large} {
+        white-space: nowrap;
+      }
+    }
+    tbody > tr > td{padding-left: 8px;}
+  }
+}
+
+.scroll {
+  white-space: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}

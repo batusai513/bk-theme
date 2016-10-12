@@ -1,0 +1,31 @@
+<!doctype html>
+<html {{ function('language_attributes') }}>
+
+{% include 'templates/head.twig' %}
+
+<body {{ function('body_class') }}>
+
+  {% include 'templates/header.twig' %}
+  <main>
+    {% block content %}{% endblock %}
+    <div class="aviso-contacto">
+      <div class="container">
+        <p class="flush--bottom">
+          <b>Gracias</b> por tomarse el tiempo para aprender más sobre <b>B&amp;K Constructors</b>. le invitamos a <a class="underline" href="/contacto.html">contactarnos</a> para que podamos discutir sobre sus necesidades de construcción en sus proyectos.
+        </p>
+      </div>
+    </div>
+  </main>
+  {% if display_sidebar %}
+<!--   <aside class="sidebar col-md-4">
+    {% block sidebar %}
+    {% include 'templates/sidebar.twig' %}
+    {% endblock %}
+  </aside> -->
+  {% endif %}
+
+  {% include 'templates/footer.twig' %}
+
+</body>
+
+</html>

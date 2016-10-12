@@ -1,0 +1,11 @@
+{% extends "templates/bk.twig" %}
+
+{% block content %}
+
+{% for post in posts %}
+
+{{ post.content }}
+
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+.bordered-text{
+  &:before{
+    background-color: $brand-info;
+    content: '';
+    display: block;
+    width: 80px;
+    height: 6px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: em(15px, 36);
+  }
+}

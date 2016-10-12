@@ -1,0 +1,8 @@
+.container{
+  max-width: 962px;
+  margin: 0 auto;
+  padding: 0 $half-spacing-unit;
+  &--small{
+    max-width: 648px;
+  }
+}

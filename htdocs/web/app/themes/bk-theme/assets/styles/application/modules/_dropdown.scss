@@ -1,0 +1,16 @@
+.dropdown{
+  position: relative;
+  &__drop{
+    text-align: left;
+    position: absolute;
+    display: none;
+    width: 100%;
+  }
+  &--hover{
+    &:hover{
+      .dropdown__drop{
+        display: block;
+      } 
+    }
+  }
+}

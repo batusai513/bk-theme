@@ -1,0 +1,41 @@
+<nav class="main-navigation">
+  <ul class="nav main-navigation__list">
+    {% for item in menu.get_items %}
+    <li class="main-navigation__item nav__item {{item.classes | join(' ')}}">
+      <a class="main-navigation__link" href="{{item.get_link}}">
+        {{item.title}}
+      </a>
+      {% if item.get_children %}
+      <ul class="nav nav--stacked dropdown__drop main-navigation__drop">
+        {% for child in item.get_children %}
+        <li class=""><a href="{{child.get_link}}">{{child.title}}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<!--
+  <ul class="nav main-navigation__list">
+    <li class="main-navigation__item nav__item">
+      <a class="main-navigation__link" href="/nosotros.html">Nosotros</a>
+    </li><li class="main-navigation__item nav__item">
+      <a class="main-navigation__link" href="/servicios.html">Servicios</a>
+    </li><li class="main-navigation__item nav__item dropdown dropdown--hover main-navigation__dropdown">
+      <a class="main-navigation__link" href="#">Proyectos</a>
+      <ul class="nav nav--stacked dropdown__drop main-navigation__drop">
+        <li><a href="/proyectos_retail.html">Retail</a></li>
+        <li><a href="/proyectos_residencial.html">Residencial</a></li>
+        <li><a href="/proyectos_institucional.html">Institucional</a></li>
+      </ul>
+    </li><li class="main-navigation__item nav__item">
+      <a class="main-navigation__link" href="/avances_obra.html">Avances en obra</a>
+    </li><li class="main-navigation__item nav__item">
+      <a class="main-navigation__link" href="/noticias.html">Noticias</a>
+    </li><li class="main-navigation__item nav__item">
+      <a class="main-navigation__link" href="/contacto.html">Contacto</a>
+    </li>
+  </ul>
+-->
