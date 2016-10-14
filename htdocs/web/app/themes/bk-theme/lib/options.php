@@ -12,4 +12,8 @@
       $dir = get_stylesheet_directory_uri() . '/acf/';
       return $dir;  
     }
-    // add_filter('acf/settings/show_admin', '__return_false');
+
+    if(WP_ENV !== 'development'){
+      add_filter('acf/settings/show_admin', '__return_false');
+      require_once get_template_directory() . 'lib/custom-fields.php';
+    }
