@@ -6,7 +6,7 @@
       ],
       "main": true
     },
-    "vendor.css": {
+    "external_vendor.css": {
       "files": [
         "styles/vendor.scss"
       ],
@@ -26,7 +26,7 @@
         "scripts/customizer.js"
       ]
     },
-    "vendor.js": {
+    "external_vendor.js": {
       "bower": ["shuffle", "waypoints", "magnific-popup", "slick-carousel", "readmore-js"]
     },
     "jquery.js": {

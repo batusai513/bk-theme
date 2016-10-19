@@ -40,15 +40,15 @@ $link-padding: ($header-height / 2) - ($link-height / 2);
     }
 	}
 	&__link{
-    padding: 5px 8px;
+    padding: 5px 6px;
     color: white;
     display: block;
     @media #{$medium} {
       padding-top: $link-padding;
     }
     @media #{$large} {
-      padding-left: 16px;
-      padding-right: 16px;
+      padding-left: em(13, 14);
+      padding-right: em(13, 14);
     }
   }
   @media #{$medium} {

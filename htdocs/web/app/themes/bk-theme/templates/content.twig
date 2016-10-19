@@ -1,12 +1,12 @@
-<article {{ function('post_class') }}>
-
-    <header>
-        <h2 class="entry-title"><a href="{{ post.link }}">{{ post.title }}</a></h2>
-        {#<?php get_template_part('templates/entry-meta'); ?>#}
-    </header>
-    <div class="entry-summary">
-        {{dump(post)}}
-        {{ post.post_excerpt }}
+<article class="resources-item card">
+  <div class="resources-item__container-info push--bottom">
+    <h1 style="line-height: 1;" class="beta flush--top push-half--bottom resources-item__title js-resource-item-title">{{post.post_title}}</h1>
+    <p class="text--smaller push-half--bottom">{{post.post_date|date('F j, Y')}} by {{post.get_author.name}}</p>
+    <div class="push--bottom">
+      <img src="{{TimberImage(post.thumbnail.src)}}" alt="">
     </div>
-
+    <p>{{post.post_excerpt}}</p>
+  </div>
+  <a class="button button--large button--info" href="{{post.link}}">Read More</a>
 </article>
+

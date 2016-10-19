@@ -14,23 +14,24 @@
               <div class="push--bottom">
                 <h2 class="epsilon color-white flush--top">Navegacion</h2>
                 <ul class="list-unstyled">
-                  <li><a href="/nosotros.html">Nosotros</a></li>
-                  <li><a href="/proyectos_retail.html">Proyectos</a></li>
-                  <li><a href="/servicios.html">Servicios</a></li>
-                  <li><a href="/avances_obra.html">Avances en obra</a></li>
-                  <!-- <li><a href="/noticias.html">Noticias</a></li> -->
-                  <li><a href="/contacto.html">Contacto</a></li>
+                  {% for item in footer_menu.get_items %}
+                    <li>
+                      <a href="{{item.get_link}}">
+                        {{item.title}}
+                      </a>
+                    </li>
+                  {% endfor %}
                 </ul>
               </div>
             </div><div class="grid__item small--one-third">
               <div class="push--bottom">
                 <h2 class="epsilon color-white flush--top">Legal</h2>
                 <p>
-                  <a href="/terminos.html">Terminos y condiciones de uso</a>
+                  <a href="/terminos">Terminos y condiciones de uso</a>
                 </p>
                 <h2 class="epsilon color-white flush--top">Elaborado por:</h2>
                 <a href="http://www.clicklagencia.com" target="_blank" rel="noopener noreferrer">
-                  <img src="../images/logo-click.svg" alt="Click">
+                  <img src="{{ function('home_url', '/') }}images/logo-click.svg" alt="Click">
                 </a>
               </div>
             </div><div class="grid__item small--one-third">
@@ -63,7 +64,6 @@
   </div>
 </footer>
 {{ function('dynamic_sidebar', 'sidebar-footer') }}
-<script type="text/javascript" src="{{theme.link}}/dist/scripts/vendor.js"></script>
 
 {{ function('wp_footer') }}
 

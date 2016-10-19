@@ -15,5 +15,5 @@
 
     if(WP_ENV !== 'development'){
       add_filter('acf/settings/show_admin', '__return_false');
-      require_once get_template_directory() . 'lib/custom-fields.php';
+      require_once get_template_directory() . '/lib/custom-fields.php';
     }

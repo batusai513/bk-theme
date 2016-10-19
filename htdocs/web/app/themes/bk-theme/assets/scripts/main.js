@@ -30,6 +30,7 @@
   var $navItems = $stikyNav.find('.horizontal-nav__item');
   var $projects = $('.inview-project');
   var $readmore = $('.readmore');
+  var $html = $('html');
 
   if($readmore.length){
     $readmore.each(function(index, el){
