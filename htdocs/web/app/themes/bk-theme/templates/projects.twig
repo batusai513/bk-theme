@@ -81,8 +81,8 @@
                 {% spaceless %}
                   {% for item in block.gallery %}
                     <div class="grid__item small--one-half medium--one-quarter">
-                      <a href="{{TimberImage(item).src}}">
-                        <img src="{{TimberImage(item).src}}" alt="item.alt" title="item.title">
+                      <a href="{{TimberImage(item).src}}" title="{{TimberImage(item).title}}">
+                        <img src="{{TimberImage(item).src}}" alt="{{TimberImage(item).alt}}" title="{{TimberImage(item).title}}">
                       </a>
                     </div>
                   {% endfor %}

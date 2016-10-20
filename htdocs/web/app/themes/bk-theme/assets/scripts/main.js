@@ -77,7 +77,10 @@
         closeBtnInside: false,
         mainClass: 'mfp-with-zoom mfp-img-mobile',
         image: {
-          verticalFit: true
+          verticalFit: true,
+          titleSrc: function(item) {
+            return item.el.attr('title') || '';
+          }
         },
         gallery: {
           enabled: true
